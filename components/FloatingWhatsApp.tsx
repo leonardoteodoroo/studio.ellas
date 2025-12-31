@@ -10,18 +10,18 @@ const FloatingWhatsApp: React.FC = () => {
       href={WHATSAPP_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] md:bg-emerald-deep text-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-[#20bd5a] md:hover:bg-emerald-muted transition-all duration-300 hover:scale-110 group border border-white/20"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-[#20bd5a] transition-all duration-300 hover:scale-110 group"
       aria-label="Falar no WhatsApp"
     >
-      {/* Pulse Effect - Keeping it subtle */}
-      <span className="absolute w-full h-full rounded-full bg-[#25D366] md:bg-emerald-deep opacity-30 animate-ping"></span>
-      
+      {/* Outer Glow/Pulse */}
+      <span className="absolute w-full h-full rounded-full bg-[#25D366] opacity-30 animate-ping"></span>
+
       {/* Icon */}
-      <MessageCircle size={32} className="relative z-10 fill-white/20" />
-      
-      {/* Tooltip for Desktop */}
-      <span className="absolute right-full mr-4 bg-white text-olive-deep px-4 py-2 rounded-lg shadow-xl text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block">
-        Agende sua avaliação
+      <MessageCircle size={36} className="relative z-10 fill-white text-white" />
+
+      {/* Red Notification Dot */}
+      <span className="absolute top-3 right-3 w-3.5 h-3.5 bg-red-500 border-2 border-white rounded-full z-20">
+        <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75"></span>
       </span>
     </a>
   );
