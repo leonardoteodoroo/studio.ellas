@@ -8,9 +8,9 @@ const HeroLuxury: React.FC = () => {
       {/* Background Video Simulation (Using an image with slow zoom) */}
       <div className="absolute inset-0 z-0">
         {/* Layer 1: Base Dimming */}
-        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        <div className="absolute inset-0 bg-black/30 z-10 animate-darken"></div>
         {/* Layer 2: Strategic Gradient to darken text areas */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 z-10 animate-darken"></div>
         {/* Layer 3: Animation Darkening (3s) */}
         <div className="absolute inset-0 bg-black/60 z-10 animate-darken"></div>
 
@@ -45,9 +45,11 @@ const HeroLuxury: React.FC = () => {
           </RevealOnScroll>
 
           <RevealOnScroll delay={900}>
-            <Button variant="luxury">
-              Quero meu cabelo impecável
-            </Button>
+            <a href="https://wa.me/5562993214412" target="_blank" rel="noopener noreferrer">
+              <Button variant="luxury">
+                Quero meu cabelo impecável
+              </Button>
+            </a>
           </RevealOnScroll>
         </div>
       </div>
