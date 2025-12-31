@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Ritual } from '../types';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Plus } from 'lucide-react';
 
 const rituals: Ritual[] = [
   {
@@ -39,7 +39,7 @@ const RitualShowcase: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {rituals.map((ritual) => (
-            <div 
+            <div
               key={ritual.id}
               className="group relative cursor-pointer overflow-hidden h-[500px] md:h-[600px] transition-all duration-700 ease-in-out shadow-xl"
               onMouseEnter={() => setActiveId(ritual.id)}
@@ -48,9 +48,9 @@ const RitualShowcase: React.FC = () => {
               <div className="absolute inset-0 z-0">
                 {/* Overall darken for image */}
                 <div className="absolute inset-0 bg-olive-deep/20 group-hover:bg-olive-deep/10 z-10 transition-colors duration-500"></div>
-                <img 
-                  src={ritual.image} 
-                  alt={ritual.title} 
+                <img
+                  src={ritual.image}
+                  alt={ritual.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[50%] group-hover:grayscale-0"
                   loading="lazy"
                 />
@@ -58,6 +58,14 @@ const RitualShowcase: React.FC = () => {
 
               {/* Stronger Gradient overlay at bottom for text readability */}
               {/* Changed from 'via-black/20' to 'via-black/60' and expanded the gradient height */}
+              {/* Interaction Cue - Center */}
+              <div className={`absolute inset-0 flex items-center justify-center z-30 transition-all duration-500 pointer-events-none ${activeId === ritual.id ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 text-white font-sans uppercase tracking-widest text-[10px] font-bold shadow-xl group-hover:bg-white/20 transition-colors">
+                  <Plus className="w-3 h-3 text-sand-organic" />
+                  <span>Ver Detalhes</span>
+                </div>
+              </div>
+
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10 opacity-90"></div>
 
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -68,11 +76,11 @@ const RitualShowcase: React.FC = () => {
                 <p className={`text-gray-100 font-sans font-medium leading-relaxed transition-all duration-500 overflow-hidden drop-shadow-md ${activeId === ritual.id ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
                   {ritual.description}
                 </p>
-                
+
                 {/* Authority Symbol - Invisible Science */}
                 <div className={`flex items-center gap-2 mt-6 transition-opacity duration-500 ${activeId === ritual.id ? 'opacity-100' : 'opacity-0'}`}>
-                    <Sparkles className="w-4 h-4 text-sand-organic" />
-                    <span className="text-xs text-white/90 uppercase tracking-widest font-semibold drop-shadow-md">Procedimento Seguro</span>
+                  <Sparkles className="w-4 h-4 text-sand-organic" />
+                  <span className="text-xs text-white/90 uppercase tracking-widest font-semibold drop-shadow-md">Procedimento Seguro</span>
                 </div>
               </div>
             </div>

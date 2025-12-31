@@ -28,6 +28,16 @@
             },
             backgroundImage: {
               'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
+            keyframes: {
+              darken: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            },
+            animation: {
+              'slow-zoom': 'slowZoom 20s alternate infinite linear',
+              'darken': 'darken 3s ease-out forwards',
             }
           }
         }
